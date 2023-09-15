@@ -34,7 +34,7 @@ class PlanetsViewModel: ObservableObject {
             do {
                 let returned = try JSONDecoder().decode(Returned.self, from: data)
                 urlString = returned.next ?? ""
-                planetsArray = returned.results
+                planetsArray += returned.results
                 isLoading = false
             } catch {
                 print("😡 JSON ERROR: Could not convert data into JSON. \(error.localizedDescription)")
@@ -43,6 +43,13 @@ class PlanetsViewModel: ObservableObject {
         } catch {
             print("😡 ERROR: could not get data from urlString \(urlString)")
             isLoading = false
+        }
+    }
+    
+    func loadNextPage(planets: Planets) async {
+        guard let lastPlanets = planetsArray.last else {return}
+        if lastPlanets.id == planets.id &&  urlString != "" {
+            await getData()
         }
     }
 }

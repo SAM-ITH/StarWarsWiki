@@ -14,25 +14,30 @@ struct PlanetsListView: View {
         NavigationStack {
             ZStack {
                 List(planetsVM.planetsArray) { planets in
-                    NavigationLink {
-                        DetailPlanetView(planets: planets)
-                    } label: {
-                        HStack {
-                            AsyncImage(url: URL(string: "https://picsum.photos/200/")) { image in
-                                image
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(height: 100)
-                                    .cornerRadius(15)
-                                    .shadow(radius: 15)
-                            } placeholder: {
-                                Image(systemName: "photo")
-                            }
-                            VStack(alignment: .leading) {
-                                Text(planets.name)
-                                Text(planets.climate)
+                    LazyVStack {
+                        NavigationLink {
+                            DetailPlanetView(planets: planets)
+                        } label: {
+                            HStack {
+                                AsyncImage(url: URL(string: "https://picsum.photos/200/")) { image in
+                                    image
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(height: 100)
+                                        .cornerRadius(15)
+                                        .shadow(radius: 15)
+                                } placeholder: {
+                                    Image(systemName: "photo")
+                                }
+                                VStack(alignment: .leading) {
+                                    Text(planets.name)
+                                    Text(planets.climate)
+                                }
                             }
                         }
+                    }
+                    .task {
+                        await planetsVM.loadNextPage(planets: planets)
                     }
                 }
                 .font(.title)
