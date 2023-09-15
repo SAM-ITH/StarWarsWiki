@@ -21,12 +21,12 @@ struct DetailPlanetView: View {
                 .foregroundColor(.gray)
             
             Group {
-                HStack {
+                HStack(alignment: .top) {
                     Text("Orbital Period :")
                         .bold()
                     Text(planets.orbital_period)
                 }
-                HStack {
+                HStack(alignment: .top) {
                     Text("Gravity :")
                         .bold()
                     Text(planets.gravity)
@@ -37,6 +37,7 @@ struct DetailPlanetView: View {
             Spacer()
         }
         .padding()
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

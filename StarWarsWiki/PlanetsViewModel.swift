@@ -16,13 +16,16 @@ class PlanetsViewModel: ObservableObject {
     }
     
     @Published var planetsArray: [Planets] = []
+    @Published var isLoading = false
     var urlString = "https://swapi.dev/api/planets/"
     
     func getData() async {
+        isLoading = true
         print("🕸️ able to access the url \(urlString)")
         
         guard let url = URL(string: urlString) else {
             print("😡 ERROR: not able to convert \(urlString) to a URL")
+            isLoading = false
             return
         }
         
@@ -32,11 +35,14 @@ class PlanetsViewModel: ObservableObject {
                 let returned = try JSONDecoder().decode(Returned.self, from: data)
                 urlString = returned.next ?? ""
                 planetsArray = returned.results
+                isLoading = false
             } catch {
                 print("😡 JSON ERROR: Could not convert data into JSON. \(error.localizedDescription)")
+                isLoading = false
             }
         } catch {
             print("😡 ERROR: could not get data from urlString \(urlString)")
+            isLoading = false
         }
     }
 }

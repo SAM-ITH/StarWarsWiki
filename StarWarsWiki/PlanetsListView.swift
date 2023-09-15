@@ -12,12 +12,39 @@ struct PlanetsListView: View {
     
     var body: some View {
         NavigationStack {
-            List(planetsVM.planetsArray) { planets in
-                Text(planets.name)
+            ZStack {
+                List(planetsVM.planetsArray) { planets in
+                    NavigationLink {
+                        DetailPlanetView(planets: planets)
+                    } label: {
+                        HStack {
+                            AsyncImage(url: URL(string: "https://picsum.photos/200/")) { image in
+                                image
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: 100)
+                                    .cornerRadius(15)
+                                    .shadow(radius: 15)
+                            } placeholder: {
+                                Image(systemName: "photo")
+                            }
+                            VStack(alignment: .leading) {
+                                Text(planets.name)
+                                Text(planets.climate)
+                            }
+                        }
+                    }
+                }
+                .font(.title)
+                .listStyle(.plain)
+                .navigationTitle("Planets 🪐")
+                
+                if planetsVM.isLoading {
+                    ProgressView()
+                        .scaleEffect(4)
+                        .tint(.red)
+                }
             }
-            .font(.title)
-            .listStyle(.plain)
-            .navigationTitle("Planets 🪐")
         }
         .task {
             await planetsVM.getData()
