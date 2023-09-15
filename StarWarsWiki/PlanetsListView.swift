@@ -8,15 +8,19 @@
 import SwiftUI
 
 struct PlanetsListView: View {
-    @State private var planetArray = ["Tatooine", "Alderaan", "Yavin IV", "Hoth"]
+    @StateObject var planetsVM = PlanetsViewModel()
+    
     var body: some View {
         NavigationStack {
-            List(planetArray, id: \.self) { planets in
-                Text(planets)
+            List(planetsVM.planetsArray) { planets in
+                Text(planets.name)
             }
             .font(.title)
             .listStyle(.plain)
             .navigationTitle("Planets 🪐")
+        }
+        .task {
+            await planetsVM.getData()
         }
     }
 }
