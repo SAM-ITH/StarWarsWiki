@@ -39,6 +39,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		192591D22AB4ACFE006D0361 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				19B0077B2AB29E6F00170016 /* StarWarsWikiApp.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		192591D32AB4AD1F006D0361 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				19B0077F2AB29E7000170016 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		192591D42AB4AD2F006D0361 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				19B0077D2AB29E6F00170016 /* PlanetsListView.swift */,
+				197EB7402AB4156000761B23 /* DetailPlanetView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		192591D52AB4AD53006D0361 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				197EB73C2AB4005400761B23 /* Planets.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		192591D62AB4AD66006D0361 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				197EB73E2AB4045A00761B23 /* PlanetsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		19B0076F2AB29E6F00170016 = {
 			isa = PBXGroup;
 			children = (
@@ -58,14 +99,13 @@
 		19B0077A2AB29E6F00170016 /* StarWarsWiki */ = {
 			isa = PBXGroup;
 			children = (
+				192591D62AB4AD66006D0361 /* ViewModel */,
+				192591D52AB4AD53006D0361 /* Model */,
+				192591D42AB4AD2F006D0361 /* View */,
+				192591D32AB4AD1F006D0361 /* Resources */,
+				192591D22AB4ACFE006D0361 /* Core */,
 				197EB7422AB4358F00761B23 /* Info.plist */,
-				19B0077B2AB29E6F00170016 /* StarWarsWikiApp.swift */,
-				19B0077D2AB29E6F00170016 /* PlanetsListView.swift */,
-				197EB7402AB4156000761B23 /* DetailPlanetView.swift */,
-				19B0077F2AB29E7000170016 /* Assets.xcassets */,
 				19B007812AB29E7000170016 /* Preview Content */,
-				197EB73C2AB4005400761B23 /* Planets.swift */,
-				197EB73E2AB4045A00761B23 /* PlanetsViewModel.swift */,
 			);
 			path = StarWarsWiki;
 			sourceTree = "<group>";
