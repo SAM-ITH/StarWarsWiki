@@ -7,16 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		197EB73D2AB4005400761B23 /* Planets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197EB73C2AB4005400761B23 /* Planets.swift */; };
+		197EB73F2AB4045A00761B23 /* PlanetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197EB73E2AB4045A00761B23 /* PlanetsViewModel.swift */; };
 		19B0077C2AB29E6F00170016 /* StarWarsWikiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0077B2AB29E6F00170016 /* StarWarsWikiApp.swift */; };
-		19B0077E2AB29E6F00170016 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0077D2AB29E6F00170016 /* ContentView.swift */; };
+		19B0077E2AB29E6F00170016 /* PlanetsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0077D2AB29E6F00170016 /* PlanetsListView.swift */; };
 		19B007802AB29E7000170016 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19B0077F2AB29E7000170016 /* Assets.xcassets */; };
 		19B007832AB29E7000170016 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19B007822AB29E7000170016 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		197EB73C2AB4005400761B23 /* Planets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planets.swift; sourceTree = "<group>"; };
+		197EB73E2AB4045A00761B23 /* PlanetsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsViewModel.swift; sourceTree = "<group>"; };
 		19B007782AB29E6F00170016 /* StarWarsWiki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarWarsWiki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19B0077B2AB29E6F00170016 /* StarWarsWikiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsWikiApp.swift; sourceTree = "<group>"; };
-		19B0077D2AB29E6F00170016 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		19B0077D2AB29E6F00170016 /* PlanetsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsListView.swift; sourceTree = "<group>"; };
 		19B0077F2AB29E7000170016 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19B007822AB29E7000170016 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -52,9 +56,11 @@
 			isa = PBXGroup;
 			children = (
 				19B0077B2AB29E6F00170016 /* StarWarsWikiApp.swift */,
-				19B0077D2AB29E6F00170016 /* ContentView.swift */,
+				19B0077D2AB29E6F00170016 /* PlanetsListView.swift */,
 				19B0077F2AB29E7000170016 /* Assets.xcassets */,
 				19B007812AB29E7000170016 /* Preview Content */,
+				197EB73C2AB4005400761B23 /* Planets.swift */,
+				197EB73E2AB4045A00761B23 /* PlanetsViewModel.swift */,
 			);
 			path = StarWarsWiki;
 			sourceTree = "<group>";
@@ -137,8 +143,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19B0077E2AB29E6F00170016 /* ContentView.swift in Sources */,
+				197EB73F2AB4045A00761B23 /* PlanetsViewModel.swift in Sources */,
+				19B0077E2AB29E6F00170016 /* PlanetsListView.swift in Sources */,
 				19B0077C2AB29E6F00170016 /* StarWarsWikiApp.swift in Sources */,
+				197EB73D2AB4005400761B23 /* Planets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
