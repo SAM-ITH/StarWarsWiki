@@ -43,6 +43,15 @@ struct PlanetsListView: View {
                 .font(.title)
                 .listStyle(.plain)
                 .navigationTitle("Planets 🪐")
+                .alert(item: $planetsVM.appError) { appAlert in
+                    Alert(title: Text("Error"),
+                          message: Text("""
+                            \(appAlert.errorString)
+                            Please try again later!
+                            """
+                                       )
+                    )
+                }
                 
                 if planetsVM.isLoading {
                     ProgressView()

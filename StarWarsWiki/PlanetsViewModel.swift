@@ -10,6 +10,12 @@ import Foundation
 @MainActor
 
 class PlanetsViewModel: ObservableObject {
+    
+    struct AppError: Identifiable {
+        let id = UUID().uuidString
+        let errorString: String
+    }
+    
     struct Returned: Codable {
         var next: String? // Oprional because its going to be null on the final page
         var results: [Planets]
@@ -17,6 +23,7 @@ class PlanetsViewModel: ObservableObject {
     
     @Published var planetsArray: [Planets] = []
     @Published var isLoading = false
+    var appError: AppError? = nil
     var urlString = "https://swapi.dev/api/planets/"
     
     func getData() async {
@@ -41,6 +48,7 @@ class PlanetsViewModel: ObservableObject {
                 isLoading = false
             }
         } catch {
+            self.appError = AppError(errorString: "Data Could Not be load")
             print("😡 ERROR: could not get data from urlString \(urlString)")
             isLoading = false
         }
