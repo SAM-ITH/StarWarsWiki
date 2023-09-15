@@ -19,7 +19,7 @@ struct PlanetsListView: View {
                             DetailPlanetView(planets: planets)
                         } label: {
                             HStack {
-                                AsyncImage(url: URL(string: "https://picsum.photos/200/")) { image in
+                                AsyncImage(url: planetsVM.cardIconURL) { image in
                                     image
                                         .resizable()
                                         .scaledToFit()

@@ -52,4 +52,9 @@ class PlanetsViewModel: ObservableObject {
             await getData()
         }
     }
+    
+    var cardIconURL: URL {
+        let urlString = "https://picsum.photos/100/"
+        return URL(string: urlString)!
+    }
 }
