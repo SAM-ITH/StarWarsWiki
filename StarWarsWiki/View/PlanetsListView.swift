@@ -36,6 +36,7 @@ struct PlanetsListView: View {
                             }
                         }
                     }
+                    /// load the next set of planets when scrolled to end of current list
                     .task {
                         await planetsVM.loadNextPage(planets: planets)
                     }
@@ -43,6 +44,7 @@ struct PlanetsListView: View {
                 .font(.title)
                 .listStyle(.plain)
                 .navigationTitle("Planets 🪐")
+                /// show the not reciving JSON data error as an alert view when the data can not be retrieved.
                 .alert(item: $planetsVM.appError) { appAlert in
                     Alert(title: Text("Error"),
                           message: Text("""

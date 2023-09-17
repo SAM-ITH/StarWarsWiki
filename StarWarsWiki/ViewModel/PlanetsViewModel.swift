@@ -7,8 +7,10 @@
 
 import Foundation
 
+/// @MainActor is used To ensure that the view model's properties and methods are only accessed from the main thread
 @MainActor
 
+/// PlanetsViewModel is conform to observableObject to keep data in sync with the user interface.
 class PlanetsViewModel: ObservableObject {
     
     struct AppError: Identifiable {
@@ -26,6 +28,8 @@ class PlanetsViewModel: ObservableObject {
     var appError: AppError? = nil
     var urlString = "https://swapi.dev/api/planets/"
     
+    // MARK: Get data function
+    /// get data function first call the URLSession and retrieve the data then parse the retrieved JSON data so thats its passed into variable of type returned, with the approprate array data paased into published property PlanetsArray
     func getData() async {
         isLoading = true
         print("🕸️ able to access the url \(urlString)")
@@ -54,6 +58,7 @@ class PlanetsViewModel: ObservableObject {
         }
     }
     
+    /// load the next page of data since API load 10 of planets for each call so this function will call the next set of planets until all the planets are retrived. 
     func loadNextPage(planets: Planets) async {
         guard let lastPlanets = planetsArray.last else {return}
         if lastPlanets.id == planets.id &&  urlString != "" {
